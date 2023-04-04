@@ -1,4 +1,4 @@
-# dinetech
+# dine-tech
 
 ## Project setup
 ```
