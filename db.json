@@ -1,0 +1,33 @@
+{
+  "users": [
+    {
+      "name": "test",
+      "email": "test@ok.com",
+      "password": "12345"
+    },
+    {
+      "id": 1,
+      "name": "Shahzad Ali",
+      "email": "sa",
+      "password": "2131"
+    },
+    {
+      "id": 1680606115165,
+      "name": "Shahzad Ali",
+      "email": "sd",
+      "password": "sda"
+    },
+    {
+      "id": 1680606666656,
+      "name": "Shahzad Ali",
+      "email": "as",
+      "password": "sda"
+    },
+    {
+      "id": 1680606765099,
+      "name": "Shahzad Ali",
+      "email": "ij",
+      "password": "j"
+    }
+  ]
+}
