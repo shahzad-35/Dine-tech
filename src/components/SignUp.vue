@@ -11,8 +11,8 @@
             </span>
         </div> -->
         <!-- <i id="icon" class="far fa-eye"></i> -->
-        <font-awesome-icon class="password-eye-icon" :icon="['fasl', showPassword ? 'eye' : 'eye-slash']" />
-        <input id="password" type="password" placeholder="Password">
+        <font-awesome-icon @click="showPassword = !showPassword" class="password-eye-icon" :icon="['fasl', showPassword ? 'eye' : 'eye-slash']" />
+        <input id="password" v-bind:type="[showPassword ? 'text' : 'password']" placeholder="Password">
         <button @click="signup"> Sign up</button>
     </div>
 </template>
@@ -87,6 +87,7 @@ export default {
 .password-eye-icon {
     padding: 8px 0px 0px 96px;
     text-align: right;
+    cursor: pointer;
     position: absolute;
 }
 
