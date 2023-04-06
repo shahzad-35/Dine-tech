@@ -4,15 +4,16 @@
     <div class="register">
         <input type="text" v-model="username" placeholder="Enter Your Name" name="name" id="name">
         <input type="email" v-model="email" placeholder="Enter Your Email" name="email" id="email">
-        <!-- <div class="password-section">
+        <div class="password-section">
             <input v-bind:type="[showPassword ? 'text' : 'password']" class="form-control" placeholder="Password">
             <span class="password-eye" @click="showPassword = !showPassword">
                 <font-awesome-icon class="password-eye-icon" :icon="['fasl', showPassword ? 'eye' : 'eye-slash']" />
             </span>
-        </div> -->
+        </div>
         <!-- <i id="icon" class="far fa-eye"></i> -->
-        <font-awesome-icon @click="showPassword = !showPassword" class="password-eye-icon" :icon="['fasl', showPassword ? 'eye' : 'eye-slash']" />
-        <input id="password" v-bind:type="[showPassword ? 'text' : 'password']" placeholder="Password">
+        <!-- <input id="password" v-bind:type="[showPassword ? 'text' : 'password']" placeholder="Password">
+        <font-awesome-icon @click="showPassword = !showPassword" class="password-eye-icon"
+            :icon="['fasl', showPassword ? 'eye' : 'eye-slash']" /> -->
         <button @click="signup"> Sign up</button>
     </div>
 </template>
@@ -46,6 +47,7 @@ export default {
             });
             if (result.status == 201) {
                 localStorage.setItem("user-info", JSON.stringify(result.data))
+                this.$router.push({ name: 'Home' })
             }
         }
     }
@@ -85,19 +87,19 @@ export default {
 }
 
 .password-eye-icon {
-    padding: 8px 0px 0px 96px;
+    padding: 7px 0px 0px 2px;
     text-align: right;
     cursor: pointer;
     position: absolute;
 }
 
 .password-eye {
-    background-color: gainsboro;
-    width: 26px;
-    height: 36px;
+    background-color: white;
+    width: 0px;
+    height: 30px;
     display: block;
     border-radius: 4px;
-    border: 1px solid #b5b5b5;
+    border: 1px solid #ffffff;
     padding-top: 3px;
     margin-left: 0px;
 }
