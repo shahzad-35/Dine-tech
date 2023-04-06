@@ -15,6 +15,9 @@
         <font-awesome-icon @click="showPassword = !showPassword" class="password-eye-icon"
             :icon="['fasl', showPassword ? 'eye' : 'eye-slash']" /> -->
         <button @click="signup"> Sign up</button>
+        <p>
+            Already have an account? <router-link to="/login">login</router-link>
+        </p>
     </div>
 </template>
 
@@ -38,7 +41,7 @@ export default {
     },
     methods: {
         async signup() {
-            console.log('------', this.username, this.email, this.password);
+
             let result = await axios.post("http://localhost:3000/users", {
                 id: Date.now(),
                 name: this.username,
@@ -53,54 +56,3 @@ export default {
     }
 }
 </script>
-
-<style>
-.logo {
-    width: 100px;
-}
-
-.register input {
-    display: block;
-    width: 250px;
-    height: 35px;
-    margin: 0px auto 30px auto;
-    border: 1px solid #b5b5b5;
-    border-radius: 4px;
-    padding: 0px 0px 0px 15px;
-    box-sizing: border-box;
-}
-
-.register button {
-    width: 133px;
-    background-color: #77a568;
-    border: 1px solid skyblue;
-    height: 46px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    border-radius: 10px;
-}
-
-.password-section {
-    width: 250px;
-    margin: 0px auto 0px auto;
-    display: flex;
-}
-
-.password-eye-icon {
-    padding: 7px 0px 0px 2px;
-    text-align: right;
-    cursor: pointer;
-    position: absolute;
-}
-
-.password-eye {
-    background-color: white;
-    width: 0px;
-    height: 30px;
-    display: block;
-    border-radius: 4px;
-    border: 1px solid #ffffff;
-    padding-top: 3px;
-    margin-left: 0px;
-}
-</style>
