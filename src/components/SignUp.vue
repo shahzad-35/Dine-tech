@@ -5,7 +5,8 @@
         <input type="text" v-model="username" placeholder="Enter Your Name" name="name" id="name">
         <input type="email" v-model="email" placeholder="Enter Your Email" name="email" id="email">
         <div class="password-section">
-            <input v-bind:type="[showPassword ? 'text' : 'password']" class="form-control" placeholder="Password">
+            <input v-bind:type="[showPassword ? 'text' : 'password']" v-model="password" class="form-control"
+                placeholder="Password">
             <span class="password-eye" @click="showPassword = !showPassword">
                 <font-awesome-icon class="password-eye-icon" :icon="['fasl', showPassword ? 'eye' : 'eye-slash']" />
             </span>
@@ -52,6 +53,14 @@ export default {
                 localStorage.setItem("user-info", JSON.stringify(result.data))
                 this.$router.push({ name: 'Home' })
             }
+        }
+    },
+    mounted() {
+        const userInfo = localStorage.getItem('auth');
+        if (userInfo) {
+            this.$router.push({ name: 'Home' })
+        } else {
+            this.$router.push({ name: 'Signup' })
         }
     }
 }
