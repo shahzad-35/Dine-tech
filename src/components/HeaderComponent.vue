@@ -1,15 +1,33 @@
 <template>
     <div class="nav-bar">
-        <a href="/">Home</a>
-        <a href="/add-resturnat">Add Resturant</a>
-        <a href="/update-resturnat">Update Resturant</a>
-        <a href="/logout">Logout</a>
+
+        <router-link to="/">Home</router-link>
+        <router-link to="/add-resturant">Add Resturant</router-link>
+        <router-link :class="{ hideButton: !isLogin }" @click="logout" to="#">Logout</router-link>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'HeaderComponent'
+    name: 'HeaderComponent',
+    data() {
+        return {
+            isLogin: false
+        }
+    },
+    methods: {
+        logout() {
+            localStorage.clear();
+            this.$router.push({ name: 'Login' })
+        }
+    },
+    mounted() {
+        const auth = localStorage.getItem('auth');
+        if (auth) {
+            this.isLogin = true;
+        }
+
+    }
 }
 </script>
 <style>
@@ -30,5 +48,9 @@ export default {
 
 .nav-bar a:hover {
     background-color: rgb(236, 231, 225);
+}
+
+.hideButton {
+    display: none;
 }
 </style>
