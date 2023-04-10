@@ -5,14 +5,7 @@
 <script>
 
 export default {
-  name: 'App',
-  mounted() {
-    const userInfo = localStorage.getItem('user-info');
-    console.log('--------------', userInfo);
-    if (userInfo) {
-      this.$router.push({ name: 'Home' })
-    }
-  }
+  name: 'App'
 }
 </script>
 
