@@ -1,9 +1,9 @@
 <template>
     <div class="nav-bar">
-        <a href="/">Home</a>
-        <a href="/add-resturnat">Add Resturant</a>
-        <a href="/update-resturnat">Update Resturant</a>
-        <a :class="{ hideButton: !isLogin }" @click="logout" href="#">Logout</a>
+
+        <router-link to="/">Home</router-link>
+        <router-link to="/add-resturant">Add Resturant</router-link>
+        <router-link :class="{ hideButton: !isLogin }" @click="logout" to="#">Logout</router-link>
     </div>
 </template>
 
